@@ -16,14 +16,13 @@ dependencies = [
     "mcap-ros2-support>=0.5.5",
     "mink>=0.0.13",
     "mujoco>=3.3.5",
-    "numpy==2.2.6",
+    "numpy>=1.26.4,<=2.2.6",
     "portal==3.7.3",
     "pydantic>=2.0",
     "pygame==2.6.1",
     "python-can==4.5.0",
     "pyyaml>=6.0.0",
     "qpsolvers[quadprog]==4.7.1",
-    "rerun-sdk>=0.32.2",
     "ruckig==0.15.3",
     "threadpoolctl==3.6.0",
     "tyro>=1.0.0",
@@ -37,6 +36,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+visualization = ["rerun-sdk>=0.32.2"]
 dev = [
     "pyright>=1.1.408",
     "pytest>=8.4.0",
@@ -45,6 +45,7 @@ dev = [
 ]
 
 [tool.uv]
+default-groups = ["dev", "visualization"]
 # ruckig 0.15.3 publishes only an sdist, so it is compiled from source on a fresh
 # install (e.g. CI). Its build fails under scikit-build-core >= 0.10, which rejects the
 # package's deprecated `cmake.targets`. Pin the build backend below that so it builds.
@@ -114,6 +115,7 @@ exclude_also = [
 omit = ["*exceptions.py"]
 
 [dependency-groups]
+visualization = ["rerun-sdk>=0.32.2"]
 dev = [
     "pre-commit>=4.5.1",
     "pyright>=1.1.408",

@@ -529,7 +529,6 @@ dependencies = [
     { name = "python-can" },
     { name = "pyyaml" },
     { name = "qpsolvers", extra = ["quadprog"] },
-    { name = "rerun-sdk" },
     { name = "rpi-lgpio", marker = "(platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'armv6l' and sys_platform == 'linux') or (platform_machine == 'armv7l' and sys_platform == 'linux')" },
     { name = "ruckig" },
     { name = "threadpoolctl" },
@@ -544,6 +543,9 @@ dev = [
     { name = "pytest-xdist" },
     { name = "ruff" },
 ]
+visualization = [
+    { name = "rerun-sdk" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -552,6 +554,9 @@ dev = [
     { name = "pytest" },
     { name = "pytest-xdist" },
     { name = "ruff" },
+]
+visualization = [
+    { name = "rerun-sdk" },
 ]
 
 [package.metadata]
@@ -562,7 +567,7 @@ requires-dist = [
     { name = "mcap-ros2-support", specifier = ">=0.5.5" },
     { name = "mink", specifier = ">=0.0.13" },
     { name = "mujoco", specifier = ">=3.3.5" },
-    { name = "numpy", specifier = "==2.2.6" },
+    { name = "numpy", specifier = ">=1.26.4,<=2.2.6" },
     { name = "portal", specifier = "==3.7.3" },
     { name = "pydantic", specifier = ">=2.0" },
     { name = "pygame", specifier = "==2.6.1" },
@@ -573,7 +578,7 @@ requires-dist = [
     { name = "python-can", specifier = "==4.5.0" },
     { name = "pyyaml", specifier = ">=6.0.0" },
     { name = "qpsolvers", extras = ["quadprog"], specifier = "==4.7.1" },
-    { name = "rerun-sdk", specifier = ">=0.32.2" },
+    { name = "rerun-sdk", marker = "extra == 'visualization'", specifier = ">=0.32.2" },
     { name = "rpi-lgpio", marker = "(platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'armv6l' and sys_platform == 'linux') or (platform_machine == 'armv7l' and sys_platform == 'linux')", specifier = ">=0.6" },
     { name = "ruckig", specifier = "==0.15.3" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.15.6" },
@@ -581,7 +586,7 @@ requires-dist = [
     { name = "tyro", specifier = ">=1.0.0" },
     { name = "viser", specifier = ">=0.2.0" },
 ]
-provides-extras = ["dev"]
+provides-extras = ["visualization", "dev"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -591,6 +596,7 @@ dev = [
     { name = "pytest-xdist", specifier = ">=3.8.0" },
     { name = "ruff", specifier = ">=0.15.6" },
 ]
+visualization = [{ name = "rerun-sdk", specifier = ">=0.32.2" }]
 
 [[package]]
 name = "identify"

@@ -31,6 +31,14 @@ sudo apt install build-essential python3-dev linux-headers-$(uname -r)
 uv pip install -e .
 ```
 
+Core robot control supports NumPy 1.26.4 through 2.2.6, including environments
+that require NumPy 1 for policy training. The locked default `uv sync` environment
+keeps NumPy 2.2.6 and the Rerun visualization dependencies.
+
+For `examples/plot_flow_base_rerun/`, pip users install
+`uv pip install -e '.[visualization]'`. This extra requires NumPy 2 and the
+current Rerun API; keep it in a separate environment from NumPy 1 policy training.
+
 ## CAN Bus Setup
 
 ```bash
